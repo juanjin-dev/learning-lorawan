@@ -587,10 +587,9 @@ packet
 0: "00"
 1-8: "11 22 33 44 55 66 77 88"
 9-17: "99 AA BB CC DD EE FF 01"
-18-21: "CD EF 12 34"
+18-19: "02 AB"
+19-23: "CD EF 12 34"
 ```
-
--   00 11 22 33 44 55 66 77 88 99 AA BB CC DD EE FF 01 02 AB CD EF 12 34
 
 -   MHDR = 00 - MType = Join-Request
 
@@ -604,7 +603,17 @@ packet
 
 ##### **Join-Accept (OTAA Response)**
 
--   20 01 23 45 01 02 03 67 89 AB CD EF 05 01 00 11 22 33 44 55 66 77 88 99 AA BB CC DD EE A1 B2 C3 D4
+```mermaid
+packet
+0: "20"
+1-4: "01 23 45"
+5-8: "01 02 03"
+9-13: "67 89 AB CD"
+14: "EF"
+15: "05"
+16-31: "01 00 11 22 33 44 55 66 77 88 99 AA BB CC DD EE"
+32-36: "A1 B2 C3 D4"
+```
 
 -   MHDR = 20 - MType = Join Accept
 
@@ -624,7 +633,16 @@ packet
 
 ##### **Unconfirmed Data Up (Simple Uplink)**
 
--   40 67 89 AB CD 80 0A 00 01 DE AD BE EF 89 AB CD EF
+```mermaid
+packet
+0: "40"
+1-4: "67 89 AB CD"
+5: "80"
+6-7: "0A 00"
+8: "01"
+9-13: "DE AD BE EF"
+14-18: "89 AB CD EF"
+```
 
 -   MHDR = 40 - Unconfirmed Data Up
 
@@ -641,6 +659,17 @@ packet
 -   MIC = 89 AB CD EF
 
 ##### **Confirmed Data Up (Uplink Requiring ACK)**
+
+```mermaid
+packet
+0: "80"
+1-5: "12 34 56 78"
+6: "20"
+7-8: "0B 00"
+9: "01"
+9-13: "01 02 03 04"
+14-18: "56 78 9A BC"
+```
 
 -   80 12 34 56 78 20 0B 00 01 01 02 03 04 56 78 9A BC
 
