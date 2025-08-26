@@ -671,8 +671,6 @@ packet
 13-16: "56 78 9A BC"
 ```
 
--   80 12 34 56 78 20 0B 00 01 01 02 03 04 56 78 9A BC
-
 -   MHDR = 80 - Confirmed Data Up
 
 -   DevAddr = 12 34 56 78
@@ -699,8 +697,6 @@ packet
 9-12: "05 06 07 08"
 13-16: "11 22 33 44"
 ```
-
--   60 67 89 AB CD 10 0C 00 01 05 06 07 08 11 22 33 44
 
 -   MHDR = 60 - Unconfirmed Data Down
 
@@ -729,8 +725,6 @@ packet
 13-16: "A5 B6 C7 D8"
 ```
 
--   A0 67 89 AB CD 30 0D 00 01 09 0A 0B 0C A5 B6 C7 D8
-
 -   MHDR = A0 - Confirmed Data Down
 
 -   DevAddr = 67 89 AB CD
@@ -758,8 +752,6 @@ packet
 10-11: "03 04"
 12-15: "12 34 56 78"
 ```
-
--   40 11 22 33 44 01 05 00 00 02 03 04 12 34 56 78
 
 -   MHDR = 40 - Unconfirmed Data Up
 
