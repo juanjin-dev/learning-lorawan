@@ -586,9 +586,9 @@
 packet
 0: "00"
 1-8: "11 22 33 44 55 66 77 88"
-9-17: "99 AA BB CC DD EE FF 01"
-18-19: "02 AB"
-19-23: "CD EF 12 34"
+9-16: "99 AA BB CC DD EE FF 01"
+17-18: "02 AB"
+19-22: "CD EF 12 34"
 ```
 
 -   MHDR = 00 - MType = Join-Request
@@ -606,13 +606,13 @@ packet
 ```mermaid
 packet
 0: "20"
-1-4: "01 23 45"
-5-8: "01 02 03"
-9-13: "67 89 AB CD"
-14: "EF"
-15: "05"
-16-31: "01 00 11 22 33 44 55 66 77 88 99 AA BB CC DD EE"
-32-36: "A1 B2 C3 D4"
+1-3: "01 23 45"
+4-6: "01 02 03"
+7-10: "67 89 AB CD"
+11: "EF"
+12: "05"
+13-28: "01 00 11 22 33 44 55 66 77 88 99 AA BB CC DD EE"
+29-32: "A1 B2 C3 D4"
 ```
 
 -   MHDR = 20 - MType = Join Accept
@@ -640,8 +640,8 @@ packet
 5: "80"
 6-7: "0A 00"
 8: "01"
-9-13: "DE AD BE EF"
-14-18: "89 AB CD EF"
+9-12: "DE AD BE EF"
+13-16: "89 AB CD EF"
 ```
 
 -   MHDR = 40 - Unconfirmed Data Up
@@ -663,12 +663,12 @@ packet
 ```mermaid
 packet
 0: "80"
-1-5: "12 34 56 78"
-6: "20"
-7-8: "0B 00"
-9: "01"
-9-13: "01 02 03 04"
-14-18: "56 78 9A BC"
+1-4: "12 34 56 78"
+5: "20"
+6-7: "0B 00"
+8: "01"
+9-12: "01 02 03 04"
+13-16: "56 78 9A BC"
 ```
 
 -   80 12 34 56 78 20 0B 00 01 01 02 03 04 56 78 9A BC
@@ -689,6 +689,17 @@ packet
 
 ##### **Unconfirmed Data Down (Server -\> Node)**
 
+```mermaid
+packet
+0: "60"
+1-4: "67 89 AB CD"
+5: "10"
+6-7: "0C 00"
+8: "01"
+9-12: "05 06 07 08"
+13-16: "11 22 33 44"
+```
+
 -   60 67 89 AB CD 10 0C 00 01 05 06 07 08 11 22 33 44
 
 -   MHDR = 60 - Unconfirmed Data Down
@@ -707,6 +718,17 @@ packet
 
 ##### **Confirmed Data Down (Server -\> Node, requires ACK)**
 
+```mermaid
+packet
+0: "A0"
+1-4: "67 89 AB CD"
+5: "30"
+6-7: "0D 00"
+8: "01"
+9-12: "09 0A 0B 0C"
+13-16: "A5 B6 C7 D8"
+```
+
 -   A0 67 89 AB CD 30 0D 00 01 09 0A 0B 0C A5 B6 C7 D8
 
 -   MHDR = A0 - Confirmed Data Down
@@ -724,6 +746,18 @@ packet
 -   MIC = A5 B6 C7 D8
 
 ##### **Data Frame with MAC Commands (FPort=0)**
+
+```mermaid
+packet
+0: "40"
+1-4: "11 22 33 44"
+5: "01"
+6-7: "05 00"
+8: "00"
+9: "02"
+10-11: "03 04"
+12-15: "12 34 56 78"
+```
 
 -   40 11 22 33 44 01 05 00 00 02 03 04 12 34 56 78
 
